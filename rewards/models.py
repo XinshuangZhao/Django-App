@@ -1,12 +1,13 @@
 from django.db import models
 from django.utils import timezone
+from django.conf import settings
 
 class Employee(models.Model):
-    name = models.CharField(max_length=200)
+    firstname = models.CharField(max_length=200)
+    lastname = models.CharField(max_length=200)
     points_remain = models.IntegerField(default=0)
     points_received = models.IntegerField(default=0)
-    def __str__(self):
-        return self.name
+    user_em = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
 class Giftcard(models.Model):
     employee = models.ForeignKey(Employee,on_delete=models.CASCADE)
@@ -15,8 +16,7 @@ class Giftcard(models.Model):
     def redeem(self):
         self.redeem_date = timezone.now()
         self.save()
-    def __str__(self):
-        return (self.employee, self.amount, self.redeem_date)
+
 
 class Transfer(models.Model):
     giver = models.CharField(max_length=200)

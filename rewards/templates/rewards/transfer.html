@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+<head>
+  	<title>rewardsite index</title>
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+		      <a class="navbar-brand">RewardSite</a>
+		</div>
+		<ul class="nav navbar-nav">
+		      <li><a href="/rewards/index">Account</a></li>
+		      <li class="active"><a href="transfer">Transfer</a></li>
+		      <li><a href="/rewards/redeem">Redeem</a></li>
+		</ul>
+	</div>
+</nav>
+		  
+<div class="container">
+	<!--  class="form-horizontal" -->
+  
+	<form action="/rewards/transfer/" method="POST">
+    {% csrf_token %} 
+	<div class="form-group">
+      <label class="control-label col-sm-2" for="receiver">Receiver:</label>
+      <div class="col-sm-10">
+        <select class="form-control" id="receiver" name="receiver">
+    		<!-- add a for loop here -->
+            {% for i in z %}
+             <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="points_given">Points_given:</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" id="points_given" placeholder="Enter number of points you want to give" name="points_given">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="message">Message:</label>
+      <div class="col-sm-10">          
+        <input type="text" class="form-control" id="message" placeholder="Leave a message to the receiver" name="message">
+      </div>
+    </div>
+    
+    <div class="form-group">        
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+</div> 		
+		  
+
+</body>
