@@ -1,4 +1,4 @@
-#Django framework, Oracle Database, HTML5(JavaScript, CSS)
+# Django framework, Oracle Database, HTML5(JavaScript, CSS)
 
 This Django App is created for the final project of Data Management course. 
 Type: Individual
