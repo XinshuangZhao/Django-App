@@ -33,4 +33,4 @@ o	One that shows all redemptions, by month by user, for the previous two months<
 
 Other Notes:<br/>
 •	It is HIGHLY suggested that you store your DDL and DML in some form of source control<br/>
-•	Highly suggested to use a website framework and language you are already familiar with. Most programming language<br/>
+•	Highly suggested to use a website framework and language you are already familiar with. Most programming language have connectivity to Oracle.<br/>
